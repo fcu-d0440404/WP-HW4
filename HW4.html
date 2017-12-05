@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<body>
+<h2>選擇學院</h2>
+<select id ="college-list" onchange="change()">
+</select>
+<h2>選擇科系</h2>
+<select id ="dep-list">
+</select>
+
+<script type = "text/javascript">
+
+var colleges = ["商學院","工學院","建設學院","資電學院"];
+
+var collegeselm = document.getElementById("college-list");
+
+data(colleges,collegeselm);
+
+var dep1 = ["會計學系","國際經營與貿易學系"];
+var dep2 = ["機械與電腦輔助工程學系","纖維與複合材料學系"];
+var dep3 = ["土木工程學系","水利工程與資源保育學系"];
+var dep4 = ["資訊工程學系","電機工程學系"];
+var depelm = document.getElementById("dep-list");
+
+data(dep1,depelm);
+
+
+function change() {
+
+    var select = collegeselm.options[collegeselm.selectedIndex].value;
+	switch (select){
+		case "0":
+			data(dep1,depelm);
+			break;
+		case "1":
+			data(dep2,depelm);
+			break;
+		case "2":
+			data(dep3,depelm);
+			break;
+		case "3":
+			data(dep4,depelm);
+			break;
+		default:
+		
+	}		
+}
+function data(datalist,datalist1)
+{
+	var option = "";
+	for(var i=0;i<datalist.length;i++)
+	{
+		option = option+'<option value="'+i+'">'+datalist[i]+'</option>';
+	}
+	datalist1.innerHTML = option;
+}
+</script>
+</body>
+</head>
+
+</html>
